@@ -1,5 +1,5 @@
 ARG BASE_TAG="develop"
-FROM kasmweb/core-ubuntu-bionic:$BASE_TAG
+FROM linkease/core-ubuntu-arm64:$BASE_TAG
 USER root
 
 ENV HOME /home/kasm-default-profile

@@ -1,5 +1,5 @@
 ARG BASE_TAG="develop"
-FROM kasmweb/core-ubuntu-bionic:$BASE_TAG
+FROM linkease/core-ubuntu-arm64:$BASE_TAG
 USER root
 
 ENV HOME /home/kasm-default-profile
@@ -18,9 +18,9 @@ RUN sed -i 's/ubuntu-mono-dark/elementary-xfce/g' $HOME/.config/xfce4/xfconf/xfc
 COPY ./src/ubuntu/install/misc $INST_SCRIPTS/misc/
 RUN bash $INST_SCRIPTS/misc/install_tools.sh && rm -rf $INST_SCRIPTS/misc/
 
-# Install Google Chrome
-COPY ./src/ubuntu/install/chrome $INST_SCRIPTS/chrome/
-RUN bash $INST_SCRIPTS/chrome/install_chrome.sh  && rm -rf $INST_SCRIPTS/chrome/
+# Install Chromium
+COPY ./src/ubuntu/install/chromium $INST_SCRIPTS/chromium/
+RUN bash $INST_SCRIPTS/chromium/install_chromium.sh && rm -rf $INST_SCRIPTS/chromium/
 
 # Install Firefox
 COPY ./src/ubuntu/install/firefox/ $INST_SCRIPTS/firefox/
